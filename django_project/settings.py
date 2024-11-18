@@ -37,10 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # new. this is an optional inbuilt Django app
 
     # 3rd party apps,
     'crispy_forms',
     'crispy_bootstrap5',
+    'allauth',
+    'allauth.account',
 
     # local apps
     'accounts',
@@ -140,7 +143,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT = "home"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # new
 CRISPY_TEMPLATE_PACK = "bootstrap5" # new
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+"django.contrib.auth.backends.ModelBackend", # This is the default inbuilt Django setting.
+"allauth.account.auth_backends.AuthenticationBackend", # new
+)
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # new
+
+ACCOUNT_SESSION_REMEMBER = True # new
+
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new
+
+ACCOUNT_USERNAME_REQUIRED = False # new
+ACCOUNT_AUTHENTICATION_METHOD = "email" # new
+ACCOUNT_EMAIL_REQUIRED = True # new
+ACCOUNT_UNIQUE_EMAIL = True # new
+
