@@ -9,5 +9,15 @@
         <p>Author: {{ object.author }}</p>
         <p>Price: {{ object.price }}</p>
     </div>
+    <div class="review-list">
+        <ul>
+        {% for review in book.reviews.all  %}
+            <li>
+                <p>Author: {{review.author}}</p>
+                <p>{{review.review}}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 
 {% endblock content %}
