@@ -21,6 +21,8 @@ DEBUG = env.bool("DJANGO_DEBUG")
 ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -153,3 +155,4 @@ ACCOUNT_AUTHENTICATION_METHOD = "email" # new
 ACCOUNT_EMAIL_REQUIRED = True # new
 ACCOUNT_UNIQUE_EMAIL = True # new
 
+DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"
