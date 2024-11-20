@@ -1,4 +1,6 @@
 
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin, auth
 from django.urls import path, include
 
@@ -7,4 +9,6 @@ urlpatterns = [
     path('', include('pages.urls')),
     path("accounts/", include("allauth.urls")),
     path("books/", include("books.urls")),
-]
+] + static(
+settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)
