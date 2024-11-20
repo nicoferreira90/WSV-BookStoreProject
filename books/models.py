@@ -5,6 +5,13 @@ from django.urls import reverse
 
 class Book(models.Model):
 
+    class Meta:
+        permissions = [
+
+            ("special_status", "Can read all books"),
+
+        ]
+
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
